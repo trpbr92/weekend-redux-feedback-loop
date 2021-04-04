@@ -2,6 +2,11 @@ import Header from '../Header/Header';
 import {Link} from 'react-router-dom';
 
 function Supported(){
+    
+    function handleSupported(){
+        console.log('in handleSupported');
+    }
+
     return(
     <>
         <header>
@@ -13,7 +18,7 @@ function Supported(){
                 min="0" max="5"/>
  
             <Link to='/comments'>
-                <button>Next</button>
+                <button onClick={handleSupported}>Next</button>
             </Link>
     </>
     )

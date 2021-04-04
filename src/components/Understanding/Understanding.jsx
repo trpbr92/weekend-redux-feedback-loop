@@ -2,6 +2,11 @@ import Header from '../Header/Header';
 import {Link} from 'react-router-dom';
 
 function Understanding(){
+    
+    function handleUnderstanding(){
+        console.log('in handleUnderstanding');
+    }
+
     return(
         <>
     <header>
@@ -13,7 +18,7 @@ function Understanding(){
         min="0" max="5"/>
  
  <Link to='/supported'>
-    <button>Next</button>
+    <button onClick={handleUnderstanding}>Next</button>
     </Link>
         </>
     )

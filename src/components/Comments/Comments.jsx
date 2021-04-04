@@ -2,6 +2,11 @@ import Header from '../Header/Header';
 import {Link} from 'react-router-dom';
 
 function Comments(){
+
+    function handleComments(){
+        console.log('in handleComments');
+    }
+
     return(
     <>
         <header>
@@ -11,7 +16,7 @@ function Comments(){
             <input type="text" placeholder="comments"/>
  
             <Link to='/review'>
-                <button>Next</button>
+                <button onClick={handleComments}>Next</button>
             </Link>
     </>
     )

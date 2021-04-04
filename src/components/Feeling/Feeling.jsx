@@ -1,9 +1,11 @@
 import {useState} from 'react';
 import Header from "../Header/Header";
 import {Link} from 'react-router-dom';
+import axios from 'axios';
+import {useDispatch} from 'react-redux';
 
 function Feeling(){
-
+const dispatch = useDispatch();
     const [tempItem, setTempItem] = useState({feeling:''});
 
     const handleFeeling = (event)=>{
@@ -11,10 +13,11 @@ function Feeling(){
         setTempItem({...tempItem, feeling: event.target.value})
     }
 
-    const handleFeelingNext = ()=>{
+    const handleFeelingNext = (object)=>{
         console.log('in handleFeelingNext');
+        dispatch({type: 'tempItem', payload: object});
     }
-
+console.log(handleFeelingNext());
     return(
         <>
     <header>

@@ -2,6 +2,11 @@ import Header from "../Header/Header";
 import {Link} from 'react-router-dom';
 
 function Feeling(){
+
+    function handleFeeling(){
+        console.log('in handleFeeling');
+    }
+
     return(
         <>
     <header>
@@ -13,7 +18,7 @@ function Feeling(){
         min="0" max="5"/>
     
     <Link to='/understanding'>
-    <button>Next</button>
+    <button onClick={handleFeeling}>Next</button>
     </Link>
         </>
     )

@@ -1,10 +1,15 @@
+import {useState} from 'react';
 import Header from '../Header/Header';
 import {Link} from 'react-router-dom';
 
 function Supported(){
 
+    const [tempItem, setTempItem] = useState({supported:''});
+
+
     const handleSupported = (event)=>{
         console.log('in handleSupported:', event.target.value);
+        setTempItem({...tempItem, supported: event.target.value})
     }
     
     const handleSupportedNext = ()=>{
@@ -24,6 +29,8 @@ function Supported(){
             <Link to='/comments'>
                 <button onClick={handleSupportedNext}>Next</button>
             </Link>
+            <p>{JSON.stringify(tempItem)}</p>
+
     </>
     )
 }

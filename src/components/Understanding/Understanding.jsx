@@ -1,10 +1,15 @@
+import {useState} from 'react';
 import Header from '../Header/Header';
 import {Link} from 'react-router-dom';
 
 function Understanding(){
 
+    const [tempItem, setTempItem] = useState({understanding:''});
+
+
     const handleUnderstanding = (event)=>{
         console.log('in handleUnderstanding:', event.target.value);
+        setTempItem({...tempItem, understanding: event.target.value})
     }
     
     const handleUnderstandingNext = ()=>{
@@ -24,6 +29,8 @@ function Understanding(){
  <Link to='/supported'>
     <button onClick={handleUnderstandingNext}>Next</button>
     </Link>
+    <p>{JSON.stringify(tempItem)}</p>
+
         </>
     )
 }

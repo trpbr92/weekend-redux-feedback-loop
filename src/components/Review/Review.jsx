@@ -2,8 +2,8 @@ import {Link} from 'react-router-dom';
 
 function Review(props){
 
-    function handleReview(){
-        console.log('in handleReview');
+    function handleReviewSubmit(){
+        console.log('in handleReviewSubmit');
     }
 
     return(
@@ -13,7 +13,7 @@ function Review(props){
             {JSON.stringify(props)}
 
             <Link to='/thankyou'>
-                <button onClick={handleReview}>SUBMIT</button>
+                <button onClick={handleReviewSubmit}>SUBMIT</button>
             </Link>
     </>
     )

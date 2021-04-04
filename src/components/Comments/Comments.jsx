@@ -3,11 +3,11 @@ import {Link} from 'react-router-dom';
 
 function Comments(){
 
-    function handleComments(){
-        console.log('in handleComments');
+    const handleComments = (event)=>{
+        console.log('in handleComments:', event.target.value);
     }
 
-    function handleCommentsNext(){
+    const handleCommentsNext = ()=>{
         console.log('in handleCommentsNext');
     }
 

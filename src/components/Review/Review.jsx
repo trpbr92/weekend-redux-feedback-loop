@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom';
 
 function Review(props){
 
-    function handleReviewSubmit(){
+    const handleReviewSubmit = ()=>{
         console.log('in handleReviewSubmit');
     }
 

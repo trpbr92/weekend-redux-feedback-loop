@@ -3,11 +3,11 @@ import {Link} from 'react-router-dom';
 
 function Supported(){
 
-    function handleSupported(){
-        console.log('in handleSupported');
+    const handleSupported = (event)=>{
+        console.log('in handleSupported:', event.target.value);
     }
     
-    function handleSupportedNext(){
+    const handleSupportedNext = ()=>{
         console.log('in handleSupportedNext');
     }
 
@@ -17,7 +17,7 @@ function Supported(){
             <Header />
         </header>
             <h1>How well are you being supported?</h1>
-                <label for="supported">Feeling? (0-5) </label>
+                <label for="supported">Support? (0-5) </label>
                 <input type="number" id="supported" name="supported" onChange={handleSupported}
                 min="0" max="5"/>
  

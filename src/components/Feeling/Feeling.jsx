@@ -1,13 +1,17 @@
+import {useState} from 'react';
 import Header from "../Header/Header";
 import {Link} from 'react-router-dom';
 
 function Feeling(){
 
-    function handleFeeling(){
-        console.log('handleFeeling');
+    const [tempItem, setTempItem] = useState({feeling:''});
+
+    const handleFeeling = (event)=>{
+        console.log('handleFeeling:', event.target.value);
+        setTempItem({...tempItem, feeling: event.target.value})
     }
 
-    function handleFeelingNext(){
+    const handleFeelingNext = ()=>{
         console.log('in handleFeelingNext');
     }
 
@@ -24,6 +28,7 @@ function Feeling(){
     <Link to='/understanding'>
     <button onClick={handleFeelingNext}>Next</button>
     </Link>
+    <p>{JSON.stringify(tempItem)}</p>
         </>
     )
 }

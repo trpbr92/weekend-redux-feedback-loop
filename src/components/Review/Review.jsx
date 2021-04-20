@@ -2,6 +2,7 @@ import {useState} from 'react';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import {Link, useHistory} from 'react-router-dom';
+import ReviewHeader from '../ReviewHeader/ReviewHeader';
 
 function Review(){
 
@@ -25,12 +26,11 @@ function Review(){
 
     return(
     <>
-    <h1>Review your feeback</h1>
- 
-        <p>Feeling: {feedback.feeling}</p>
-        <p>Support: {feedback.support}</p>
-        <p>Understanding: {feedback.understanding}</p>
-        <p>Comments: {feedback.comments}</p>
+        <ReviewHeader />
+        <h3>Feeling: {feedback.feeling}</h3>
+        <h3>Support: {feedback.support}</h3>
+        <h3>Understanding: {feedback.understanding}</h3>
+        <h3>Comments: {feedback.comments}</h3>
         <button onClick={handleReviewSubmit}>SUBMIT</button>
     </>
     )

@@ -1,13 +1,17 @@
-import {Link} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
 
 function ThankYou(){
+
+    let history = useHistory();
+
+    const backToFeeling = ()=>{
+        history.push('/');
+    }
+    
     return(
     <>
     <h1>Thank You!</h1>
-
-            <Link to='/'>
-                <button>Leave New Feedback</button>
-            </Link>
+    <button onClick={backToFeeling}>Leave New Feedback</button>
     </>
     )
 }

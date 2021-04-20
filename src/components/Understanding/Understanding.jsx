@@ -1,19 +1,25 @@
 import {useState} from 'react';
 import Header from '../Header/Header';
-import {Link} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 function Understanding(){
 
-    const [tempItem, setTempItem] = useState({understanding:''});
+    const dispatch = useDispatch();
+    const history = useHistory();
+
+    const [understanding, setUnderstanding] = useState('');
 
 
     const handleUnderstanding = (event)=>{
         console.log('in handleUnderstanding:', event.target.value);
-        setTempItem({...tempItem, understanding: event.target.value})
+        setUnderstanding(event.target.value);
     }
     
     const handleUnderstandingNext = ()=>{
-        console.log('in handleUnderstandingNext');
+        console.log('in handleUnderstandingNext', understanding);
+        dispatch({type: 'handleUnderstandingNext', payload: understanding})
+        history.push('/supported');
     }
 
     return(
@@ -26,12 +32,9 @@ function Understanding(){
         <input type="number" id="understanding" name="understanding" onChange={handleUnderstanding}
         min="0" max="5"/>
  
- <Link to='/supported'>
     <button onClick={handleUnderstandingNext}>Next</button>
-    </Link>
-    <p>{JSON.stringify(tempItem)}</p>
 
-        </>
+     </>
     )
 }
 

@@ -1,25 +1,26 @@
 import {useState} from 'react';
 import Header from "../Header/Header";
-import {Link} from 'react-router-dom';
-import axios from 'axios';
+import {useHistory} from 'react-router-dom';
 import {useDispatch} from 'react-redux';
 
 function Feeling(){
-const dispatch = useDispatch();
-    const [tempItem, setTempItem] = useState({feeling:''});
+
+    const dispatch = useDispatch();
+    const [feeling, setFeeling] = useState('');
+    const history = useHistory();
 
     const handleFeeling = (event)=>{
         console.log('handleFeeling:', event.target.value);
-        setTempItem({...tempItem, feeling: event.target.value})
+        setFeeling(event.target.value)
     }
 
-    const handleFeelingNext = (object)=>{
-        console.log('in handleFeelingNext');
-        dispatch({type: 'tempItem', payload: object});
+    const handleFeelingNext = ()=>{
+        console.log('in handleFeelingNext', feeling);
+        dispatch({type: 'handleFeelingNext', payload: feeling});
+        history.push('/understanding');
     }
-console.log(handleFeelingNext());
     return(
-        <>
+    <>
     <header>
         <Header />
     </header>
@@ -28,11 +29,8 @@ console.log(handleFeelingNext());
         <input type="number" id="feeling" name="feeling" onChange={handleFeeling}
         min="0" max="5"/>
     
-    <Link to='/understanding'>
     <button onClick={handleFeelingNext}>Next</button>
-    </Link>
-    <p>{JSON.stringify(tempItem)}</p>
-        </>
+    </>
     )
 }
 
